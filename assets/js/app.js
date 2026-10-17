@@ -88,7 +88,7 @@
     const kind = file.mediaType === 'video' ? 'VIDEO' : 'PHOTO';
     const media = file.mediaType === 'image'
       ? `<img src="${escapeHTML(file.path)}" alt="Фото ${index + 1} — ${escapeHTML(project.title)}" loading="lazy" decoding="async">`
-      : `<video class="project-media-video" muted playsinline preload="none" data-video-preview src="${escapeHTML(file.path)}" aria-label="Видео ${index + 1} — ${escapeHTML(project.title)}"></video><span class="video-play-glyph" aria-hidden="true">▶</span>`;
+      : `<video class="project-media-video" muted playsinline preload="metadata" data-video-preview src="${escapeHTML(file.path)}" aria-label="Видео ${index + 1} — ${escapeHTML(project.title)}"></video><span class="video-play-glyph" aria-hidden="true">▶</span>`;
     return `<button class="project-media-tile" type="button" data-project-media="${escapeHTML(file.id)}" aria-label="Открыть ${kind === 'VIDEO' ? 'видео' : 'фото'} ${index + 1}">${media}<span class="media-type-pill">${kind}</span></button>`;
   }
   function renderProjectRoute(slug) {
